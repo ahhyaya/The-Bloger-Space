@@ -18,49 +18,39 @@
   <body>
 
     <header>
+      <nav class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">Dashboard</a>
+        </li>
+  
+        {{#if loggedIn}}  
+        <li class="nav-item"></li>
+            <a class="nav-link" href="/logout" id="logout">Logout</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        {{/if}}
+      </nav>
 
       <div class="jumbotron jumbotron-fluid">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/dashboard">Dashboard</a>
-
-          </li>{{#if loggedIn}}
-            <li class="nav-item">
-              <a class="nav-link" id="logout">Logout</a>
-            </li>
-          {{else}}
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-          {{/if}}
-        </ul>
-
-        {{!-- <nav>
-                <a href="/">Home</a>
-                <a href="/dashboard">Dashboard</a>
-                {{#if loggedIn}}
-                <button id="logout" class="btn">Logout</button>
-                {{else}}
-                <a href="/login">Login</a>
-                {{/if}}
-            </nav> --}}
-
         <div class="container">
           <h1 class="display-5">The Blogger Space</h1>
           <p class="lead">Welcome to blogger space!</p>
         </div>
       </div>
     </header>
+
     <main>
       <div class="blog">{{{body}}}</div>
-
     </main>
     {{#if loggedIn}}
-      <script src="/public/js/logout.js"></script>
+      <script src="/js/logout.js"></script>
     {{/if}}
   </body>
-
 </html>

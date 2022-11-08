@@ -20,4 +20,4 @@ const signupFormHandler = async (e) => {
     }
 };
 
-$("#signin-btn").on("submit", signupFormHandler);
+$("#signup-btn").on("click", signupFormHandler);

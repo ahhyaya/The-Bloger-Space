@@ -22,5 +22,5 @@ const loginFormHandler = async (e) => {
 };
 
 
-$("#login-form").on("submit", loginFormHandler);
+$("#login-btn").on("click", loginFormHandler);
 

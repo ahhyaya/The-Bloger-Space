@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const { Post, Comment } = require('../models');
-
+const { Post, Comment, User } = require('../models');
+const sequelize = require('../config/connection');
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
     try {
         const dbPostData = await Post.findAll({
-            // include: [
-            //     {
-            //         model: Comment,
-            //         attributes: ['comment_detail'],
-            //     },
-            // ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: ['comment_detail'],
+                },
+            ],
         });
 
         const posts = dbPostData.map((post) => 

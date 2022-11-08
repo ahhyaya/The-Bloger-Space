@@ -2,11 +2,13 @@
 <section>
     <h2>Post made by you</h2>
     {{#each posts as |post|}}
+ {{> post-info post}}
+    <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
     {{/each}}
 </section>
 {{/if}}
 
-<button type="submit" class="'btn">
+<button type="submit" class="'btn" id="addpost-btn">
     <a href="/dashboard/new" class="link">Add New Post</a>
 </button>
 
