@@ -9,9 +9,9 @@ const signupFormHandler = async (e) => {
         const response = await fetch ('/api/users', {
             method: 'POST',
             body: JSON.stringify({username, password}),
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json','Accept': 'application/json' },
         });
-
+       
         if(response.ok) {
             document.location.replace('/');
         } else {

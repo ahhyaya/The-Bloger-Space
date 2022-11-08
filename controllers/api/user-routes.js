@@ -9,12 +9,12 @@ router.post('/', async(req,res) => {
             username: req.body.username,
             password: req.body.password,
         });
-
         req.session.save(() => {
             req.session.loggedIn = true;
             res.status(200).json(dbUserData);
         });
-    } catch(err) {
+    } 
+    catch(err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -22,6 +22,7 @@ router.post('/', async(req,res) => {
 
 // user login
 router.post('/login', async(req, res) => {
+    console.log(req.body)
     try {
         const dbUserData = await User.findOne({
             where: {
