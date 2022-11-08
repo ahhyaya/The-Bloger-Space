@@ -2,8 +2,8 @@
 const signupFormHandler = async (e) => {
     e.preventDefault();
 
-    const userName = $("#username-signup").value.trim();
-    const password = $("#password-signup").value.trim();
+    const userName = $("#username-signup").val().trim();
+    const password = $("#password-signup").val().trim();
 
     if (userName && password) {
         const response = await fetch ('/api/users', {
