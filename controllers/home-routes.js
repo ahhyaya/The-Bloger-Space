@@ -6,12 +6,12 @@ const { Post, Comment } = require('../models');
 router.get('/', async (req, res) => {
     try {
         const dbPostData = await Post.findAll({
-            include: [
-                {
-                    model: Comment,
-                    attributes: ['comment_detail'],
-                },
-            ],
+            // include: [
+            //     {
+            //         model: Comment,
+            //         attributes: ['comment_detail'],
+            //     },
+            // ],
         });
 
         const posts = dbPostData.map((post) => 
