@@ -11,49 +11,46 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <head profile="http://www.w3.org/2005/10/profile">
-<link rel="icon" 
-      type="image/png" 
-      href="http://example.com/myicon.png">
     <link rel="stylesheet" href="/css/style.css" />
     <title>The Blogger Space</title>
   </head>
-<div class="container">
-  <body>
-    <nav class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/dashboard">Dashboard</a>
-      </li>
-      {{#if loggedIn}}
+  <div class="container">
+    <body>
+      <nav class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link" id="logout" href="#">Logout</a>
+          <a class="nav-link" href="/">Home</a>
         </li>
-      {{else}}
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="/dashboard">Dashboard</a>
         </li>
-      {{/if}}
-    </nav>
+        {{#if loggedIn}}
+          <li class="nav-item">
+            <a class="nav-link" id="logout" href="#">Logout</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        {{/if}}
+      </nav>
 
-    <header>
-      <div class="jumbotron jumbotron-fluid">
-        
+      <header>
+        <div class="jumbotron jumbotron-fluid">
+
           <h1 class="display-5">The Blogger Space</h1>
-          <p class="lead flex-row justify-center">Welcome to blogger space!</p>
-        
-      </div>
-    </header>
+          <p class="lead flex-row justify-center" id="welcome">Welcome to
+            blogger space!</p>
 
-    <main>
-      <div class="blog">{{{body}}}</div>
-    </main>
-    <footer class="flex-row justify-center">
-      &copy; The Blogger Space
-    </footer>
-  </body>
+        </div>
+      </header>
+
+      <main>
+        <div class="blog">{{{body}}}</div>
+      </main>
+      <footer class="flex-row justify-center">
+        &copy; The Blogger Space
+      </footer>
+    </body>
   </div>
 </html>
 

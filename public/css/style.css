@@ -53,3 +53,7 @@ p {
 .card-body {
     background-color: rgba(224, 218, 196, 0.697);
 }
+
+#welcome {
+    text-align: center;
+}
