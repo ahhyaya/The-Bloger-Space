@@ -51,7 +51,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // click on the post title
-router.get('/edit/:id', withAuth, (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id);
 
