@@ -12,6 +12,10 @@ router.get('/', async (req, res) => {
                     model: Comment,
                     attributes: ['comment_detail'],
                 },
+                {
+                    model: User,
+                    attributes: ['username'],
+                }
             ],
         });
 
@@ -20,6 +24,7 @@ router.get('/', async (req, res) => {
         );
         console.log(req.session);
         console.log("req.sessionID", req.sessionID)
+        console.log("posts", posts)
         res.render("homepage", { posts });
     } catch (err) {
         console.log(err);
