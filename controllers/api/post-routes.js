@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'title',
-            'content'
+            'content',
+          
         ],
         include: [
             {
@@ -20,9 +21,10 @@ router.get('/', (req, res) => {
             model: Comment,
             attributes: [
                 'id',
-                'comment-detail',
+                'comment_detail',
                 'post_id',
-                'user_id'
+                'user_id',
+              
             ],
             include: [{
                 model: User,
