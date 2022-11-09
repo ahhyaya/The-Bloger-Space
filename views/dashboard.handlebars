@@ -1,7 +1,4 @@
-{{!-- 
-    <main>
-      <div class="blog">{{{body}}}</div>
-    </main> --}}
+
  <h4>Your Posts</h4>
 
  </br>
@@ -10,9 +7,11 @@
     <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
     {{/each}}
     <footer class="footer flex-row justify-center" id="addpost-btn">
-      <a href="/dashboard/new">Add New Post</a>
+      </br>
+      <button href="/dashboard/new" id="add-new-post-btn">Add New Post</button>
+      
     </footer>
-  
+  </br>
 <script src="/js/add-post.js"></script>
 
 <script src="/js/logout.js"></script>

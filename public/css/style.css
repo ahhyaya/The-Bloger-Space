@@ -1,5 +1,5 @@
 :root {
-    --backgroud:#b7bfe9d9;
+    --backgroud:#   ;
     --lightbackground: 
 
 }
@@ -44,10 +44,22 @@ p {
     /* font-weight: bold; */
 }
 
-.btn {
+.btn{
     background: radial-gradient(orange, navy);
     line-height: 20px;
     margin: 10px 0 10px 0;
+}
+
+#add-new-post-btn {
+    background: radial-gradient(rgba(255, 166, 0, 0.625), rgba(0, 0, 128, 0.624));
+    line-height: 20px;
+    margin: 10px 0 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#add-new-post-btn:active {
+    background: radial-gradient(rgba(255, 166, 0, 0.625), rgba(0, 0, 128, 0.624));
+    font-size: 13px;
 }
 
 .card-body {

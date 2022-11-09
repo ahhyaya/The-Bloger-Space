@@ -1,7 +1,7 @@
 const commentFormHandler = async (e) => {
     e.preventDefault();
 
-    const comment_detail = $(".comment-body").value.trim();
+    const comment_detail = $(".comment-body").val().trim();
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
@@ -23,9 +23,9 @@ const commentFormHandler = async (e) => {
         document.location.reload();
     } else {
         alert(response.statusText);
-        $("#new-comment-form").style.display = "block";
+        $(".comment-form").style.display = "block";
     }
  }
 }
 
- $(".new-comment-form").on("submit", commentFormHandler);
+ $("#new-comment-btn").on("click", commentFormHandler);

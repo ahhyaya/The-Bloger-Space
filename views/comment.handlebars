@@ -4,9 +4,9 @@
     </div>
 
     <div>
-        <button type="submit">add comment</button>
+        <button type="submit" id="new-comment-btn">add comment</button>
     </div>
 </form>
 {{#each comment as |comment|}}
-{{>comment-details}}
+{{>comment-details comment}}
 {{/each}}
