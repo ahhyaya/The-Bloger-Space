@@ -48,7 +48,15 @@ router.get('/post/:id', withAuth, async (req, res) => {
                             'content',
                             'created_at'
                         ],
+                        include: {
+                            model: User,
+                            attributes: ['username']
+                        }
                     },
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }
                 ],
             });
             const post = dbPostData.get({ plain: true });
@@ -60,31 +68,45 @@ router.get('/post/:id', withAuth, async (req, res) => {
     }
 });
 
-// GET a single comment by ID
-// router.get('/comment/:id', async(req,res) => {
-//     if (!req.session.loggedIn) {
-//         res.redirect('/login');
-//     } else {
-//         try {
-//             const dbCommentData = await Comment.findByPk(req.params.id, {
-//                 include: [
-//                     {
-//                         model: Comment,
-//                         attributes: [
-//                             'id',
-//                             'comment_detail',
-//                         ],
-//                     },
-//                 ],
-//             });
-//             const comment = dbCommentData.get ({ plain: true });
-//             res.render('comment', {comment, loggedIn: req.session.loggedIn});
-//         } catch(err) {
-//             console.log(err);
-//             res.status(500).json(err);
-//         }
-//     }
-// });
+router.get('/post-comments', (req, res) => {
+    Post.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: [
+                'id',
+                'content',
+                'title',
+                'created_at'
+            ],
+            include: [{
+                    model: Comment,
+                    attributes: ['id', 'comment_detail', 'post_id', 'user_id', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            const post = dbPostData.get({ plain: true });
+
+            res.render('posts-comments', { post, loggedIn: req.session.loggedIn });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 // GET login
 router.get('/login', (req, res) => {
