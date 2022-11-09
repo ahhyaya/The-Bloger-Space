@@ -28,7 +28,12 @@ Comment.init(
                 model: 'user',
                 key: 'id',
             },
-        }
+        },
+        create_at: {
+            type: DataTypes.DATEONLY,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+         }   
     },
     {
         sequelize,

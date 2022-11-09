@@ -3,6 +3,8 @@ const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 const sequelize = require('../config/connection');
 
+
+// GET all posts with comments after signin
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
@@ -12,7 +14,7 @@ router.get('/', withAuth, (req, res) => {
             'id',
             'title',
             'content',
-         
+            'create_at'
         ],
         include: [{
             model: Comment,
@@ -21,7 +23,7 @@ router.get('/', withAuth, (req, res) => {
                 'comment_detail',
                 'post_id',
                 'user_id',
-               
+                'create_at'
             ],
             include: {
                 model: User,
@@ -59,10 +61,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'content',
             'create_at'
         ],
-        include: [{
-            model: User,
-            attributes: ['username']
-        },
+        include: [
         {
             model: Comment,
             attributes: [
@@ -103,8 +102,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
     // });
 });
 
-router.get('/new', (req, res) => {
-    res.render('new-post');
+// Create new post by logged in user
+router.get('/new', withAuth, (req, res) => {
+    res.render('new-post', {
+        layout: 'dashboard',
+    });
 });
 
 module.exports = router;
