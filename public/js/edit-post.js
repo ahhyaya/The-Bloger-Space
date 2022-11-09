@@ -1,8 +1,8 @@
 const editPostFormHandler = async (e) => {
     e.preventDefault();
 
-    const title = $("#post-title").value.trim();
-    const content = $("#post-content").value.trim();
+    const title = $("#post-title").val().trim();
+    const content = $("#post-content").val().trim();
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
@@ -21,14 +21,13 @@ const editPostFormHandler = async (e) => {
     });
 
     if(response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/dashboard');
     } else {
         alert('Update Failed!');
     }
  }
 
- $(".edit-post-form").on("submit", editPostFormHandler);
+ $("#edit-post-btn").on("click", editPostFormHandler);
 
- //to do: create .edit-post-form
 
  

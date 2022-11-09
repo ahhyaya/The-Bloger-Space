@@ -3,7 +3,7 @@ const { Post, Comment, User } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-// GET all posts after login
+// GET all user posts after login
 router.post('/', withAuth, async(req, res) => {
     const body = req.body;
     console.log(body)
