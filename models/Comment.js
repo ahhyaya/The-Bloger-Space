@@ -35,6 +35,7 @@ Comment.init(
             defaultValue: DataTypes.NOW,
          }   
     },
+    
     {
         sequelize,
         freezeTableName: true,

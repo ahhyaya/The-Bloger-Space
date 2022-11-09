@@ -22,4 +22,4 @@ const addPostFormHandler = async (e) => {
     }
  }
 
- $("#add-new-post-btn").on("click", addPostFormHandler);
+ $(".new-post-form").on("submit", addPostFormHandler);
