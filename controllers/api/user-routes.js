@@ -1,6 +1,6 @@
 const router = require ('express').Router();
 // const { resourceUsage } = require('process');
-const { User, Post, Comment } = require('../../models');
+const { User } = require('../../models');
 
 // new user signup
 router.post('/', async(req,res) => {
@@ -49,6 +49,7 @@ router.post('/login', async(req, res) => {
         
         req.session.save(() => {
             req.session.loggedIn = true;
+            req.session.username = dbUserData.username;
             req.session.user_id = dbUserData.id;
             res
                 .status(200)
