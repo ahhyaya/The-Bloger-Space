@@ -15,11 +15,11 @@ const addPostFormHandler = async (e) => {
         }
     });
 
-    if(response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert('Request Failed!');
-    }
+    // if(response.ok) {
+    //     document.location.replace('/dashboard');
+    // } else {
+    //     alert('Request Failed!');
+    // }
  }
 
- $(".new-post-form").on("submit", addPostFormHandler);
+ $("#new-post-form").on("submit", addPostFormHandler);

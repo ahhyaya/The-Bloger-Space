@@ -1,3 +1,5 @@
+const postId = $("#post-id").val();
+
 const commentFormHandler = async (e) => {
     e.preventDefault();
 
@@ -11,8 +13,8 @@ const commentFormHandler = async (e) => {
     const response = await fetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify({
-            post_id,
-            comment_detail
+            postId,
+            comment_detail,
         }),
         headers: {
             'content-type': 'application/json' 
@@ -23,9 +25,9 @@ const commentFormHandler = async (e) => {
         document.location.reload();
     } else {
         alert(response.statusText);
-        $(".comment-form").style.display = "block";
+        // $(".comment-form").style.display = "block";
     }
  }
 }
 
- $("#new-comment-btn").on("click", commentFormHandler);
+ $(".comment-form").on("submit", commentFormHandler);

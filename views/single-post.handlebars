@@ -1,17 +1,22 @@
-<section class="single-post-container">
-    {{> post-details post}}
-{{#if loggedIn}}
-<div class="comment-container">
+<section id="single-post-container" class ="container">
+     <div class="card-header  flex-row justify-space-between">
+     <h3 id="post-title">Title: {{post.title}}</h3>
+    <h5 id="post-content">Content:
+        {{post.content}}
+    </h5>
+</div>
+<input type="hidden" name="post-id" value="{{post.id}}">
+<div class="comment-container card">
         <h3 class="card-header">
             <form class="card-body comment-form" id="comment-form">
                  <div class="form-row">
         <label class="form-label">Comment</label>
-        <input id="comment" name="comment-body" class="form-input  form-control" />
-    </div>
+        <textarea id="comment" name="comment-body" class="comment-body form-input  form-control" />
+    </textarea>
         <button type="submit" class="btn">Submit</button>
     </form>
 </div>
-{{/if}}
+
 
 {{> comments post.comments}}
 

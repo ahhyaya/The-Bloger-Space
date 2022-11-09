@@ -2,53 +2,29 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 const sequelize = require('../config/connection');
+// const { mapFinderOptions } = require('sequelize/types/utils');
 
 
 // GET all posts with comments after signin
 router.get('/', withAuth, (req, res) => {
-    Post.findAll({
+    try{
+    const postData = Post.findAll({
         where: {
-            user_id: req.session.user_id
+            "user_id": req.session.user_id
         },
-        attributes: [
-            'id',
-            'title',
-            'content',
-            'create_at'
-        ],
-        include: [{
-            model: Comment,
-            attributes: [
-                'id',
-                'comment_detail',
-                'post_id',
-                'user_id',
-                'create_at'
-            ],
-            include: {
-                model: User,
-                attributes: ['username']
-            }
-        },
-        {
-            model: User,
-            attributes: ['username']
-        }
-    ]
-    })
-        .then(dbPostData => {
-            const posts = dbPostData.map((post) => post.get({ plain: true }));
-            console.log(posts)
-            res.render("dashboard", {
-                posts,
-                loggedIn: true
-            });
-        });
-    // .catch (err => {
-    //     console.log(err);
-    //     res.status(500).json(err);
-    // });
+        include: [User],
 });
+const posts = postData.map((post) => post.get({ plain: true }));
+
+res.render('post', {
+    // views: homepage,
+    posts,
+});
+} catch(err) {
+    res.status(404).end();
+}
+});
+
 
 // click on the post title
 router.get('/edit/:id', withAuth, async (req, res) => {
@@ -60,7 +36,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
             console.log(post)
             res.render('edit-post', {
                 views:'dashboard',
-                post
+                post,
             })
         } else {
             res.status(404).end();
@@ -70,12 +46,18 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     }
 })
 
-
-// Create new post by logged in user
+// After click on new post 
 router.get('/new', withAuth, (req, res) => {
     res.render('new-post', {
-        views: 'dashboard',
+        layout: main
     });
 });
+
+// // Create new post by logged in user
+// router.get('/new', withAuth, (req, res) => {
+//     res.render('new-post', {
+//         views: 'dashboard',
+//     });
+// });
 
 module.exports = router;

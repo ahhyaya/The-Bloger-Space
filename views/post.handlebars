@@ -1,0 +1,14 @@
+
+    <div class="col-auto">
+        <h2>Welcome {{user.username}}!</h2>
+    </div>
+    <br>
+    {{#if posts.length}}
+    <section clas ="card flex-column">
+    {{#each posts as |post|}}
+    {{> edit-post post}}
+    {{/each}}
+</section>
+{{/if}}
+
+{{!-- to be check --}}
