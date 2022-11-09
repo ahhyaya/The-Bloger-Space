@@ -28,7 +28,3 @@ const editPostFormHandler = async (e) => {
  }
 
  $(".edit-post-form").on("submit", editPostFormHandler);
-
- //to do: create .edit-post-form
-
- 

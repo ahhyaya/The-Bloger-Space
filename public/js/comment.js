@@ -8,7 +8,7 @@ const commentFormHandler = async (e) => {
     ];
 
     if(comment_detail) {
-    const response = await fetch('/api/comments', {
+    const response = await fetch('/api/comment', {
         method: 'POST',
         body: JSON.stringify({
             post_id,
@@ -23,9 +23,9 @@ const commentFormHandler = async (e) => {
         document.location.reload();
     } else {
         alert(response.statusText);
-        $("#comment-form").style.display = "block";
+        $("#new-comment-form").style.display = "block";
     }
  }
 }
 
- $(".comment-form").on("submit", commentFormHandler);
+ $(".new-comment-form").on("submit", commentFormHandler);

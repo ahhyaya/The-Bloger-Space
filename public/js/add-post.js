@@ -4,7 +4,7 @@ const addPostFormHandler = async (e) => {
     const title = $("#post-title").value;
     const content = $("#post-content").value;
 
-    const response = await fetch('/api/posts', {
+    const response = await fetch('/api/post', {
         method: 'POST',
         body: JSON.stringify({
             title,
@@ -22,4 +22,4 @@ const addPostFormHandler = async (e) => {
     }
  }
 
- $("creat-new-post-btn").on("click", addPostFormHandler);
+ $("#creat-new-post-btn").on("click", addPostFormHandler);
