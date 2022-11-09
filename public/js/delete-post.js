@@ -24,4 +24,3 @@ const deletePostFormHandler = async (e) => {
 
  $("#delete-post-btn").on("click", deletePostFormHandler);
 
- //to do: add #delete-post-btn
