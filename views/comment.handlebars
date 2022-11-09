@@ -1,7 +1,11 @@
-<section class ="comment">
-    <h4>Comment:
-        {{comment.comment_detail}}
-    </h4>
-</section>
+<form class="comment-form">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
 
-{{!-- to be check --}}
+    <div>
+        <button type="submit">add comment</button>
+    </div>
+</form>
+
+{{> comments post.comments}}

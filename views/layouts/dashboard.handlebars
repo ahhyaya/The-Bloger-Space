@@ -26,14 +26,12 @@
         <a class="nav-link" href="/dashboard">Dashboard</a>
       </li>
 
-      {{#unless loggedIn}}
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-
-      {{/unless}}
       <li class="nav-item">
-        <a class="nav-link" id="logout" href="#">Logout</a>
+        <a class="nav-link" href="#" id="logout">Logout</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
       </li>
 
     </nav>
@@ -42,6 +40,7 @@
         <div class="container">
           <h1 class="display-5">The Blogger Space</h1>
           <p class="lead">Welcome to blogger space!</p>
+          <a href="/dashboard">Your Dashboard</a>
         </div>
       </div>
     </header>
@@ -49,11 +48,11 @@
     <main>
       <div class="blog">{{{body}}}</div>
     </main>
-    <footer class="flex-row justify-center">
-      &copy; The Blogger Space
+
+    <footer class="footer flex-row justify-center">
+      <a href="/dashboard/new">➕ New Post</a>
     </footer>
   </body>
 </html>
-{{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-{{/if}}
+
+<script src="/js/logout.js"></script>
