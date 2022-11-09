@@ -16,27 +16,23 @@
   </head>
 
   <body>
-
     <nav class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link" href="/dashboard">Dashboard</a>
       </li>
-
       {{#unless loggedIn}}
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
-
       {{/unless}}
       <li class="nav-item">
         <a class="nav-link" id="logout" href="#">Logout</a>
       </li>
-
     </nav>
+
     <header>
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -54,6 +50,7 @@
     </footer>
   </body>
 </html>
+
 {{#if loggedIn}}
   <script src="/js/logout.js"></script>
 {{/if}}
