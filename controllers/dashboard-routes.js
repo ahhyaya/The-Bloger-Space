@@ -56,7 +56,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
         const postData = await Post.findByPk(req.params.id);
 
         if(postData) {
-            const post = postData({plain:true});
+            const post = postData.get({plain:true});
             console.log(post)
             res.render('edit-post', {
                 views:'dashboard',
@@ -66,7 +66,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
             res.status(404).end();
         } 
     }catch (err) {
-            res.redirect('login');
+        res.status(500).json(err);
     }
 })
 
