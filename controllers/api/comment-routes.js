@@ -1,10 +1,9 @@
 const router = require ('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-// GET all comments afte login
-
+// GET all comments after login
 router.get('/', withAuth, async (req, res) => {
     try {
         const dbCommentData = await Comment.findAll({

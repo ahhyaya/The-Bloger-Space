@@ -4,36 +4,50 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 // GET all posts after login
-router.get('/', withAuth, (req, res) => {
-    Post.findAll({
-        attributes: [
-            'id',
-            'title',
-            'content',
-            'create_at'
-        ],
-        include: [
+router.get('/', withAuth, async(req, res) => {
+    const body = req.body;
+    console.log(body)
+    try {
+        const newPost = await Post.create( 
             {
-            model: User,
-            attributes: ['username']
-            },
-            {
-            model: Comment,
-            attributes: [
-                'id',
-                'comment_detail',
-                'post_id',
-                'user_id',
-                'create_at'
-            ],
-            include: [{
-                model: User,
-                attributes: ['username']
-            }]
-        }]
-    })
-        .then(dbPostData => 
-            res.json(dbPostData.reverse()));
+                ...body, user_id:req.session.user_id 
+            }
+        );
+        console.log(newPost)
+        res.json(newPost)
+    } catch(err) {
+        console.log('Create New Post Failed!', err);
+        res.status(500).json(err);
+    }
+    // Post.findAll({
+    //     attributes: [
+    //         'id',
+    //         'title',
+    //         'content',
+    //         'create_at'
+    //     ],
+    //     include: [
+    //         {
+    //         model: User,
+    //         attributes: ['username']
+    //         },
+    //         {
+    //         model: Comment,
+    //         attributes: [
+    //             'id',
+    //             'comment_detail',
+    //             'post_id',
+    //             'user_id',
+    //             'create_at'
+    //         ],
+    //         include: [{
+    //             model: User,
+    //             attributes: ['username']
+    //         }]
+    //     }]
+    // })
+    //     .then(dbPostData => 
+    //         res.json(dbPostData.reverse()));
     //      .catch (err => {
     //     console.log(err);
     //     res.status(500).json(err);
