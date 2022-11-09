@@ -3,9 +3,9 @@ const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-// get all comments
+// GET all comments afte login
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const dbCommentData = await Comment.findAll({
             include: [
@@ -26,6 +26,25 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+// CREATE a new comment
+router.post('/', withAuth, (req, res) => {
+    const body = req.body;
+
+    try{
+        const newComment = await Comment.create({
+            ...body,
+            user_id:  req.session.user_id,
+        });
+        res.json(newComment);
+    }catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+
 
 // // get one comment by ID
 // router.get('/comment/:id', async (req, res) => {
