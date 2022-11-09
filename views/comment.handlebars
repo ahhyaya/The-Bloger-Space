@@ -7,5 +7,6 @@
         <button type="submit">add comment</button>
     </div>
 </form>
-
-{{> comments post.comments}}
+{{#each comment as |comment|}}
+{{>comment-details}}
+{{/each}}

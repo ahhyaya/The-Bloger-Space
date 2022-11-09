@@ -57,3 +57,7 @@ p {
 #welcome {
     text-align: center;
 }
+
+.active {
+    display: block;
+}
