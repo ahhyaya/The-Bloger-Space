@@ -59,7 +59,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
             const post = postData({plain:true});
             console.log(post)
             res.render('edit-post', {
-                layout:'dashboard',
+                views:'dashboard',
                 post
             })
         } else {
@@ -126,7 +126,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 // Create new post by logged in user
 router.get('/new', withAuth, (req, res) => {
     res.render('new-post', {
-        layout: 'dashboard',
+        views: 'dashboard',
     });
 });
 

@@ -1,9 +1,55 @@
 :root {
-    --backgroud:
-    --lightbackground:
-    
+    --backgroud:#b7bfe9d9;
+    --lightbackground: 
+
 }
 * {
     box-sizing: border-box;
   }
 
+  h1, h2, h3 {
+    background: radial-gradient(orange, navy);
+    padding: 20px;
+    margin-bottom: 35px;
+    margin-top: -10px;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.container {
+    margin: 120px auto;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border: 2px double;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    background-color: var(--backgroud-color);
+    border-radius: 15px;
+}
+
+p {
+    margin-bottom: -5px;
+    text-align: left;
+    padding: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    /* font-weight: bold; */
+}
+
+.btn {
+    background: radial-gradient(orange, navy);
+    line-height: 20px;
+    margin: 10px 0 10px 0;
+}
+
+.card-body {
+    background-color: rgba(224, 218, 196, 0.697);
+}

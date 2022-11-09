@@ -1,15 +1,18 @@
-{{!-- {{#if post.length}}
+{{!-- 
+    <main>
+      <div class="blog">{{{body}}}</div>
+    </main> --}}
+ <h4>Your Posts</h4>
 
-{{/if}} --}}
- <h2>Post made by you</h2>
+ </br>
     {{#each posts as |post|}}
  {{> post-details post}}
     <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
     {{/each}}
-
-
-<button type="submit" class="'btn" id="addpost-btn">
-    <a href="/dashboard/new" class="link">Add New Post</a>
-</button>
-
+    <footer class="footer flex-row justify-center" id="addpost-btn">
+      <a href="/dashboard/new">➕ New Post</a>
+    </footer>
+  
 <script src="/js/add-post.js"></script>
+
+<script src="/js/logout.js"></script>
