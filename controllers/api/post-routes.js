@@ -4,7 +4,7 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 // GET all posts after login
-router.get('/', withAuth, async(req, res) => {
+router.post('/', withAuth, async(req, res) => {
     const body = req.body;
     console.log(body)
     try {

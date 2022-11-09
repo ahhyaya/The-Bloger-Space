@@ -1,10 +1,10 @@
 const addPostFormHandler = async (e) => {
     e.preventDefault();
 
-    const title = $("#post-title").value;
-    const content = $("#post-content").value;
-
-    const response = await fetch('/api/post', {
+    const title = $("#post-title").val();
+    const content = $("#post-content").val();
+    console.log({title,content})
+    const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({
             title,
