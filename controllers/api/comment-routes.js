@@ -29,7 +29,7 @@ router.get('/', withAuth, async (req, res) => {
 
 
 // CREATE a new comment
-router.post('/', withAuth, (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     const body = req.body;
 
     try{

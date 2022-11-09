@@ -41,7 +41,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // UPDATE post
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try{
         console.log(req.body)
         const [affectedRows] = await Post.update(req.body, {

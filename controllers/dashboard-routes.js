@@ -104,7 +104,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
 // Create new post by logged in user
 router.get('/new', withAuth, (req, res) => {
-    res.render('new-post', {
+    res.render('add-post', {
         layout: 'dashboard',
     });
 });
