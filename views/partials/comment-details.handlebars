@@ -1,4 +1,8 @@
-<section class="card">
+
+  {{#each this}}
+
+<section class="card comments">
+
     {{!-- <a href="/comment/{{id}}">
     <p>{{comment_detail}}</p>
     </a> --}}
@@ -11,5 +15,5 @@
       {{!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
     </blockquote>
   </div>
-
   </section>
+{{/each}}
