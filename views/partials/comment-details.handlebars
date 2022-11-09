@@ -1,9 +1,11 @@
 <section class="card">
-<div class="card-body comment-body">
+<div class="card-body comment-body comments">
+  {{#each this}}
     <a href="/comments/{{id}}"></a>
     <blockquote class="blockquote mb-0">
       <p>{{comment_details}}</p>
       <footer class="blockquote-footer">Create at {{format_date create_at}} By User {{user.username}}</footer>
     </blockquote>
+    {{/each}}
   </div>
   </section>
