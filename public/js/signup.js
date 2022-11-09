@@ -13,11 +13,11 @@ const signupFormHandler = async (e) => {
         });
        
         if(response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard/');
         } else {
             alert('Fail to sign up!');
         }
     }
 };
 
-$("#signup-btn").on("click", signupFormHandler);
+$("#signup-form").on("submit", signupFormHandler);
