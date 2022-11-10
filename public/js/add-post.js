@@ -3,7 +3,7 @@ const addPostFormHandler = async (e) => {
 
     const title = $("#post-title").val();
     const content = $("#post-content").val();
-    console.log({title,content})
+    console.log({title, content})
     const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({
@@ -22,4 +22,4 @@ const addPostFormHandler = async (e) => {
     // }
  }
 
- $("#new-post-form").on("submit", addPostFormHandler);
+ $(".new-post-form").on("submit", addPostFormHandler);

@@ -74,38 +74,41 @@ const withAuth = require('../../utils/auth');
 // });
 
 // CREATE a new post after login
-router.post('/', withAuth, async(req, res) => {
-    const body = req.body;
-    console.log(body)
-    try {
-        const newPost = await Post.create( 
+router.post('/', withAuth, (req, res) => {
+
+        const newPost = Post.create( 
             {
-                ...body, user_id:req.session.user_id 
-            }
-        );
-        console.log(newPost)
-        res.json(newPost)
-    } catch(err) {
+                title: req.body.title,
+                content: req.body.content,
+                user_id: req.session.user_id
+            })
+            .then(newPost => res.json(newPost))
+         .catch(err => {
         console.log('Create New Post Failed!', err);
         res.status(500).json(err);
-    }
+    });
 });
 
 // UPDATE post
 router.put('/:id', withAuth, async (req, res) => {
     try{
         console.log(req.body)
-        const [affectedRows] = await Post.update(req.body, {
-            where: {
-                id: req.params.id,
+        const updatePostData = await Post.update( 
+            {
+            title: req.body.title,
+            content: req.body.content,
             },
+            {
+                where: {
+                    id: req.params.id,
+                },
         });
 
-        if(affectedRows > 0) {
-            res.status(200).end();
-        } else {
-            res.status(400).end();
-        }
+        if(!updatePostData) {
+            res.status(404).json({message: "No post found with this user!"});
+            return;
+        } 
+        res.json(updatePostData);
     } catch(err) {
         res.status(500).json(err);
     }
@@ -114,18 +117,19 @@ router.put('/:id', withAuth, async (req, res) => {
 // DELETE post
 router.delete('/:id', withAuth, async(req, res) => {
     try{
-        const [affectedRows] = Post.destroy({
+        const postData = await Post.destroy({
             where: {
                 id: req.params.id,
+                user_id: req.session.user_id,
             },
         });
 
-        if(affectedRows > 0) {
-            res.status(200).end();
-        } else {
-            res.status(400).end();
-        }
-    } catch(err) {
+        if(!postData) {
+            res.status(404).json({message: `No post by user user_id = ${req.session.user_id} found with id = ${req.params.id}` });
+            return;
+        } 
+        res.json(postData);
+        } catch(err) {
         res.status(500).json(err);
     }
 });

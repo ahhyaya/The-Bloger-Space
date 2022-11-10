@@ -1,17 +1,31 @@
 <div class="card">
-    <h3 class="card-header">Edit Post</h3>
-    <form class="card-body edit-post-form" id="edit-post-form">
-        <label for="post-title" class="form-lable">Title</label>
-        <input type="text" id="post-title" name="post-title" class="form-input" value="{{post.title}}">
-
-        <label for="content" class="form-label">Content</label>
-        <input type="text" id="post-content" name="post-content" class="form-input" value="{{post.content}}">
-
-        <button type="submit" class="btn" id="edit-post-btn">Update Post</button>
-        <button type="submit" class="btn" id="delete-post-btn">Delete Post</button>
-    </form>
+  <h4 class="card-header">Edit Post</h4>
+  <form class="card-body edit-post-form" id="edit-post-form">
+    <label for="post-title" class="form-lable">Post Title</label>
+    <br />
+    <input
+      type="text"
+      id="post-title"
+      name="post-title"
+      class="form-input"
+      value="{{post.title}}"
+    />
+    <br />
+    <label for="content" class="form-label">Post Content</label>
+    <br />
+    <textarea
+      id="post-content"
+      name="post-content"
+      class="form-input"
+      data-number="8"
+    >{{post.content}}
+    </textarea>
+    <br />
+    <button type="submit" class="btn" id="edit-post-btn">Update Post</button>
+    <br />
+    <button type="submit" class="btn" id="delete-post-btn" data-id="{{post.id}}">Delete Post</button>
+  </form>
 
 </div>
 
-<script src="/js/edit-post.js"></script>
-<script src="/js/delete-post.js"></script>
+<script src="/js/edit.js"></script>
