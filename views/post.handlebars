@@ -1,14 +1,15 @@
-
-    <div class="col-auto">
-        <h2>Welcome {{user.username}}!</h2>
-    </div>
-    <br>
-    {{#if posts.length}}
-    <section clas ="card flex-column">
+<div class="row">
+  <div class="col-auto">
+    <h4>{{user.username}}'s Dashboard!</h4>
+  </div>
+</div>
+<br />
+{{#if posts.length}}
+  <section class="card flex-column">
     {{#each posts as |post|}}
-    {{> edit-post post}}
+     {{> dashboard-details post}}
     {{/each}}
-</section>
+  </section>
 {{/if}}
 
-{{!-- to be check --}}
+<script src="/js/add-post.js"></script>
