@@ -3,7 +3,7 @@ const { Post, Comment, User } = require("../models");
 const withAuth = require("../utils/auth");
 const sequelize = require("../config/connection");
 
-// GET all posts with comments after signin
+// GET all posts with users after signin
 router.get("/", withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({

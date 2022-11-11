@@ -1,15 +1,9 @@
-<div class="row">
-  <div class="col-auto">
-    <h4>{{user.username}}'s Dashboard!</h4>
-  </div>
-</div>
 <br />
 {{#if posts.length}}
-  <section class="card flex-column">
+  <div class="card flex-column">
     {{#each posts as |post|}}
      {{> dashboard-details post}}
     {{/each}}
-  </section>
+  </div>
 {{/if}}
 
-<script src="/js/add-post.js"></script>

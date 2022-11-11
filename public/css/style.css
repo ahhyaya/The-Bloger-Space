@@ -1,75 +1,80 @@
 :root {
-    --backgroud:#   ;
-    --lightbackground: 
-
+  --backgroud: #;
+  --lightbackground: ;
 }
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
-  h1, h2, h3 {
-    background: radial-gradient(orange, navy);
-    padding: 20px;
-    margin-bottom: 35px;
-    margin-top: -10px;
+.dashboard-title {
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  background: radial-gradient(orange, navy);
+  padding: 20px;
+  margin-bottom: 35px;
+  margin-top: -10px;
 }
 
 h2 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 h3 {
-    font-size: 18px;
-    font-style: italic;
+  font-size: 18px;
+  font-style: italic;
 }
 
 .container {
-    margin: 120px auto;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    border: 2px double;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 40px;
-    background-color: var(--backgroud-color);
-    border-radius: 15px;
+  margin: 120px auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  border: 2px double;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  background-color: var(--backgroud-color);
+  border-radius: 15px;
 }
 
 p {
-    margin-bottom: -5px;
-    text-align: left;
-    padding: 5px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 15px;
-    /* font-weight: bold; */
+  margin-bottom: -5px;
+  text-align: left;
+  padding: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 15px;
+  /* font-weight: bold; */
 }
 
-.btn{
-    background: radial-gradient(orange, navy);
-    line-height: 20px;
-    margin: 10px 0 10px 0;
+.btn {
+  background: radial-gradient(orange, navy);
+  line-height: 20px;
+  margin: 10px 0 10px 0;
 }
 
 #add-new-post-btn {
-    background: radial-gradient(rgba(255, 166, 0, 0.625), rgba(0, 0, 128, 0.624));
-    line-height: 20px;
-    margin: 10px 0 10px 0;
-    font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(rgba(255, 166, 0, 0.625), rgba(0, 0, 128, 0.624));
+  line-height: 20px;
+  margin: 10px 0 10px 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #add-new-post-btn:active {
-    background: radial-gradient(rgba(255, 166, 0, 0.625), rgba(0, 0, 128, 0.624));
-    font-size: 13px;
+  background: radial-gradient(rgba(255, 166, 0, 0.625), rgba(0, 0, 128, 0.624));
+  font-size: 13px;
 }
 
 .card-body {
-    background-color: rgba(224, 218, 196, 0.697);
+  background-color: rgba(224, 218, 196, 0.697);
 }
 
 #welcome {
-    text-align: center;
+  text-align: center;
 }
 
 .active {
-    display: block;
+  display: block;
 }

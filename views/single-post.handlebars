@@ -1,27 +1,36 @@
-<section id="single-post-container" class ="container">
-     <div class="card-header  flex-row justify-space-between">
-     <h3 id="post-title">Title: {{post.title}}</h3>
-    <h5 id="post-content">Content:
-        {{post.content}}
-    </h5>
+<div class="card">
+  <div class="card-header flex-row justify-space-between">
+    {{! <section id="single-post-container" class ="container"> }}
+
+    <h4><a href="/posts/{{post.id}}">{{post.title}}</a></h4>
+    <span>posted by
+      {{post.user.username}}
+      on
+      {{format_date post.create_at}}</span>
+  </div>
+  <h5 id="post-content" class="card-body">
+    {{post.content}}
+  </h5>
 </div>
-<input type="hidden" name="post-id" id="post-id" value="{{post.id}}">
+
+<input type="hidden" name="post-id" id="post-id" value="{{post.id}}" />
+
 <div class="comment-container card">
-        <h3 class="card-header">
-            <form class="card-body comment-form" id="comment-form">
-                 <div class="form-row">
-        <label class="form-label">Comment</label>
-        <textarea id="comment" name="comment-body" class="comment-body form-input  form-control" />
-    </textarea>
-        <button type="submit" class="btn">Submit</button>
+  <div class="card-header">
+    <form
+      class="card-body"
+      id="comment-form"
+      action="/posts/{{post.id}}/comments"
+    >
+      <label class="form-label">Comment: </label>
+      <textarea
+        id="comment-body"
+        name="comment-body"
+        class="comment-body form-input form-control"
+      ></textarea>
+      <button type="submit" class="btn">Submit</button>
     </form>
+  </div>
 </div>
 
-
-{{> comments post.comments}}
-
-</section>
-
-{{#if loggedIn}}
 <script src="/js/comment.js"></script>
-{{/if}}
