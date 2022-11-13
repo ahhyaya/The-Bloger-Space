@@ -17,7 +17,7 @@ const editFormHandler = async (e) => {
       content,
     }),
     headers: {
-      "content-type": "application/json",
+      "Content-Type": "application/json",
     },
   });
   console.log(response);

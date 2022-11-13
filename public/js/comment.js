@@ -1,17 +1,18 @@
 const commentFormHandler = async (e) => {
   e.preventDefault();
 
-  const comment_detail = $(".comment-body").val();
+  const comment_detail = $("#comment-body").val();
+  console.log(comment_detail)
 
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
 
   if (comment_detail) {
-    const response = await fetch(`/posts/${id}/comments`, {
+    const response = await fetch(`/api/posts/${id}/comments`, {
       method: "POST",
       body: JSON.stringify({
-        post_id,
+        post_id: id,
         comment_detail,
       }),
       headers: {
@@ -20,7 +21,7 @@ const commentFormHandler = async (e) => {
     });
 
     if (response.ok) {
-      document.location.reload();
+      document.location.replace(`/posts/${id}/comments`);
     } else {
       alert(response.statusText);
       // $(".comment-form").style.display = "block";
@@ -28,4 +29,4 @@ const commentFormHandler = async (e) => {
   }
 };
 
-$(".comment-form").on("submit", commentFormHandler);
+$("#comment-btn").on("click", commentFormHandler);
