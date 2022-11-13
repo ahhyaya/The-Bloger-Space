@@ -26,23 +26,18 @@ const editFormHandler = async (e) => {
   } else {
     alert("Update Failed!");
   }
-    // document.location.replace("/dashboard");
 };
 
 // DELETE Post
 const deleteFormHandler = async (e) => {
   e.preventDefault();
 
-  //   const id = window.location.toString().split("/")[
-  //     window.location.toString().split("/").length - 1
-  //   ];
   if (e.target.hasAttribute("data-id")) {
     const id = e.target.getAttribute("data-id");
     const response = await fetch(`/api/posts/${id}`, {
       method: "DELETE",
     });
     if (response.ok) {
-      // alert('Successfully Updated!');
       document.location.replace("/dashboard");
     } else {
       alert("Failed to delete project");

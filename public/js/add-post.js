@@ -14,12 +14,6 @@ const addPostFormHandler = async (e) => {
             'content-type': 'application/json' 
         }
     });
-
-    // if(response.ok) {
-    //     document.location.replace('/dashboard');
-    // } else {
-    //     alert('Request Failed!');
-    // }
  }
 
  $(".new-post-form").on("submit", addPostFormHandler);

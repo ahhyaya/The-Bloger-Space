@@ -24,7 +24,6 @@ const commentFormHandler = async (e) => {
       document.location.replace(`/posts/${id}/comments`);
     } else {
       alert(response.statusText);
-      // $(".comment-form").style.display = "block";
     }
   }
 };
