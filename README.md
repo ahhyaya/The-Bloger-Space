@@ -19,9 +19,7 @@
 
    * a CMS-style blog site
 
-   ![feature1](./assets/1.png)
-   ![feature1](./assets/2.png)
-   ![feature1](./assets/3.png)
+
   ---
   ## Installation
   Your application’s folder structure must follow the Model-View-Controller paradigm. You’ll need to use the express-handlebarsLinks to an external site. package to use Handlebars.js for your Views, use the MySQL2Links to an external site. and SequelizeLinks to an external site. packages to connect to a MySQL database for your Models, and create an Express.js API for your Controllers.
@@ -35,11 +33,7 @@
    * npm i bcrypt
    * npm i connect-session-sequelize
 
-  ---
-
-  ## Demo
-
-
+  
   ---
 
   ## License
